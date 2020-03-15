@@ -1,4 +1,3 @@
-const expect = require('chai').expect;
 const requestHelper = require('../helpers/request.helper');
 
 describe('Test suite', () => {
@@ -18,7 +17,6 @@ describe('Test suite', () => {
     
   it('Get a single employee', async () => {
     const response = await requestHelper.getEmployee(23);
-    console.log(response.data.id);
     expect(response.data.id).to.equal('23');
   });
 
