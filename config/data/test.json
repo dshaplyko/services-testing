@@ -1,6 +1,5 @@
 {
-  "userId": "",
-  "id": "",
-  "title": "",
-  "body": ""
+  "userId": 1,
+  "title": "my test title",
+  "body": "my test body"
 }
