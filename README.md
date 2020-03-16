@@ -21,3 +21,9 @@ To run tests you should execute the command
 ```
 $> npm run test
 ```
+
+## API guide
+
+https://jsonplaceholder.typicode.com/guide.html
+
+````

@@ -18,7 +18,10 @@ const createPost = async post => {
     const response = await fetch(`${endpoint.url}/posts/`, {
         method: 'POST',
         body: JSON.stringify(post),
-        agent: proxy
+        agent: proxy,
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+        }
     });
     return response.json();
 };

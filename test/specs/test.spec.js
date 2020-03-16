@@ -5,7 +5,7 @@ describe('Test suite', () => {
 
   before(() => {
     //to avoid https:// issue
-    NODE_TLS_REJECT_UNAUTHORIZED = 0;
+    //NODE_TLS_REJECT_UNAUTHORIZED = 0;
   });
 
   it('Get all Posts', async () =>  {
@@ -14,23 +14,22 @@ describe('Test suite', () => {
     expect(posts.length).to.be.above(0);
     posts.forEach(post => {
       expect(typeof post.id).to.equal('number');
-      expect(typeof post.userId).to.equal('number');
-      expect(typeof post.body).to.equal('string');
       expect(typeof post.title).to.equal('string');
+      expect(typeof post.author).to.equal('string');
     });
   });
 
   it('Create a Post', async () =>  {
     const post = await requestHelper.createPost(data);
-    expect(post.id).to.equal(101);
+    expect(post.author).to.equal(data.author);
+    expect(post.title).to.equal(data.title);
   });
 
   it('Get a single Post', async () =>  {
-    const post = await requestHelper.getPost(100);
+    const post = await requestHelper.getPost(1);
     
-    expect(post.id).to.equal(100);
-    expect(typeof post.userId).to.equal('number');
-    expect(typeof post.body).to.equal('string');
+    expect(post.id).to.equal(1);
+    expect(typeof post.author).to.equal('string');
     expect(typeof post.title).to.equal('string');
   });
 
