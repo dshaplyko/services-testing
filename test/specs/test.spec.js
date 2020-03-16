@@ -3,28 +3,32 @@ const requestHelper = require('../helpers/request.helper');
 describe('Test suite', () => {
 
   before(() => {
-    //create an employee
+    //to avoid https:// issue
+    NODE_TLS_REJECT_UNAUTHORIZED=0;
   });
 
-  it('Get all employees', async () =>  {
-    const response = await requestHelper.getEmployees();
-    //console.log(response);
+  it('Get all Posts', async () =>  {
+    const response = await requestHelper.getPosts();
+    console.log(response);
   });
 
-  it('Create an employee', async () =>  {
+  it('Get a single Post', async () =>  {
+    const response = await requestHelper.getPost(1);
+    console.log(response);
+  });
+
+
+
+  it('Create a Post', async () =>  {
     
   });
     
-  it('Get a single employee', async () => {
-    const response = await requestHelper.getEmployee(23);
-    expect(response.data.id).to.equal('23');
-  });
 
-  it('Modify an employee', async () => {
+  it('Update a post', async () => {
    
   });
 
-  it('Delete an employee', async () => {
+  it('Delete a post', async () => {
     
   });
 
