@@ -4,6 +4,7 @@
   "description": "repository for web-services testing",
   "main": "index.js",
   "scripts": {
+    "pretest": "rimraf ./reports",
     "test": "mocha"
   },
   "repository": {
@@ -21,6 +22,7 @@
     "https-proxy-agent": "^5.0.0",
     "mocha": "^7.1.0",
     "mochawesome": "^5.0.0",
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.0",
+    "rimraf": "^3.0.2"
   }
 }
