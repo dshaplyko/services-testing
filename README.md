@@ -31,6 +31,7 @@ To run tests you should execute the command
 
 ```
 $> npm run test
+$> DEBUG='true' npm run test - to run tests capturing requests via Fiddler
 ```
 
 ## API guide
