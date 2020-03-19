@@ -1,8 +1,12 @@
 const fetch = require('node-fetch');
 const endpoint = require('../../config/endpoint/endpoint');
 const HttpsProxyAgent = require('https-proxy-agent');
-const proxy =  new HttpsProxyAgent('http://127.0.0.1:8888');
-
+let proxy;
+/**
+ * Use DEBUG='true' npm run test - to review fiddler's logs
+ */
+if (process.env.DEBUG === 'true') proxy =  new HttpsProxyAgent('http://127.0.0.1:8888');
+ 
 //https://jsonplaceholder.typicode.com/guide.html
 const getPosts = async () => {
     const response = await fetch(`${endpoint.url}/posts`, {agent: proxy});
