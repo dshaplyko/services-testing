@@ -8,26 +8,32 @@ let proxy;
 if (process.env.DEBUG === 'true') proxy =  new HttpsProxyAgent('http://127.0.0.1:8888');
  
 //https://jsonplaceholder.typicode.com/guide.html
+const sendRequest = async (method, url, body = null) => {
+	body ? body = JSON.stringify(body) : body;
+
+	const headers = {
+		"Content-type": "application/json; charset=UTF-8"
+	};
+
+	const response = await fetch(`${endpoint.url}/${url}`,{
+		method: method,
+		headers: headers,
+		agent: proxy,
+		body: body
+	});
+	return response.json();
+};
+
 const getPosts = async () => {
-    const response = await fetch(`${endpoint.url}/posts`, {agent: proxy});
-    return response.json();
+	return sendRequest('GET', 'posts');
 };
 
 const getPost = async id => {
-    const response = await fetch(`${endpoint.url}/posts/${id}`, {agent: proxy});
-    return response.json();
+	return sendRequest('GET', `posts/${id}`);
 };
 
 const createPost = async post => {
-    const response = await fetch(`${endpoint.url}/posts/`, {
-        method: 'POST',
-        body: JSON.stringify(post),
-        agent: proxy,
-        headers: {
-            "Content-type": "application/json; charset=UTF-8"
-        }
-    });
-    return response.json();
+	return sendRequest('POST', 'posts/', post);
 };
 
 const updatePost = async post => {
@@ -39,9 +45,9 @@ const deletePost = async post => {
 };
 
 module.exports = {
-    getPosts,
-    getPost,
-    createPost,
-    updatePost,
-    deletePost
+	getPosts,
+	getPost,
+	createPost,
+	updatePost,
+	deletePost
 };
