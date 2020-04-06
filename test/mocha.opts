@@ -1,5 +1,0 @@
---reporter mochawesome 
---reporter-options reportDir=reports,reportFilename=serviceTests
---timeout 15000
---recursive "./test/specs/*.js"
---require chai/register-expect

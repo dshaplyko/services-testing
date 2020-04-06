@@ -1,10 +1,10 @@
 {
   "name": "services-testing",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "repository for web-services testing",
   "main": "index.js",
   "scripts": {
-    "pretest": "rimraf ./reports",
+    "pretest": "rimraf ./mochawesome-report",
     "test": "mocha"
   },
   "repository": {

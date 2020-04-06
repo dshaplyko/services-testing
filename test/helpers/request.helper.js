@@ -1,14 +1,15 @@
 const fetch = require('node-fetch');
 const endpoint = require('../../config/endpoint/endpoint');
 const HttpsProxyAgent = require('https-proxy-agent');
-let proxy;
 /**
- * Use DEBUG='true' npm run test - to review fiddler's logs
+ * Here is the option to turn on/off fiddler capturing
  */
-if (process.env.DEBUG === 'true') proxy =  new HttpsProxyAgent('http://127.0.0.1:8888');
+const isCaptured = false;
+let proxy;
  
 //https://jsonplaceholder.typicode.com/guide.html
 const sendRequest = async (method, url, body = null) => {
+	isCaptured ? proxy =  new HttpsProxyAgent('http://127.0.0.1:8888'): proxy;
 	body ? body = JSON.stringify(body) : body;
 
 	const headers = {

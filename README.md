@@ -31,8 +31,10 @@ To run tests you should execute the command
 
 ```
 $> npm run test
-$> DEBUG='true' npm run test - to run tests capturing requests via Fiddler
 ```
+
+## Fiddler capturing
+Please use isCaptured option to turn on/off fiddler's capturing (please see ./test/helpers/request.helper.js file for more info)
 
 ## API guide
 
