@@ -37,12 +37,12 @@ const createPost = async post => {
 	return sendRequest('POST', 'posts/', post);
 };
 
-const updatePost = async post => {
-
+const updatePost = async (id, post) => {
+	return sendRequest('PUT', `posts/${id}`, post);
 };
 
-const deletePost = async post => {
-
+const deletePost = async id => {
+	return sendRequest('DELETE', `posts/${id}`);
 };
 
 module.exports = {
